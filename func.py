@@ -355,6 +355,7 @@ def csvWrite(arr,fileName):
     file.close()
     return
 
+'''
 def isPrime(num):
     if(num<=1):
         return False
@@ -368,7 +369,6 @@ def isPrime(num):
                 break
         return prime
 
-'''
 def primeFactorize(num):
     factors = []
     while(True):
@@ -388,6 +388,21 @@ def primeFactorize(num):
             break
     return factors
 '''
+
+def isPrime(num):
+    if(num==1):
+        return False
+    elif(num==2):
+        return True
+    elif(num%2==0):
+        return False
+    else:
+        sqrt_num = math.sqrt(num)
+        bound = int(sqrt_num)+1
+        for i in range(3,bound,2):
+            if(num%i==0):
+                return False
+        return True
 
 def primeFactorize(num):
     factors = []
