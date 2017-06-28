@@ -368,6 +368,7 @@ def isPrime(num):
                 break
         return prime
 
+'''
 def primeFactorize(num):
     factors = []
     while(True):
@@ -386,9 +387,31 @@ def primeFactorize(num):
         if(num==1):
             break
     return factors
+'''
 
-
-
+def primeFactorize(num):
+    factors = []
+    while(True):
+        prime = True
+        if(num%2==0):
+            prime = False
+            factors.append(2)
+            num = num/2
+        else:
+            sqroot = math.sqrt(num)
+            bound = int(sqroot)+1
+            for i in range(3,bound,2):
+                if(num%i==0):
+                    prime = False
+                    factors.append(i)
+                    num = num/i
+                    break
+        if(prime):
+            factors.append(int(num))
+            num = num/num
+        if(num==1):
+            break
+    return factors
     
 
 
