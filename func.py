@@ -2,7 +2,7 @@
 '''
 Created on Fri Nov 04 2016
 
-Modified on Fri Jun 16 2017
+Modified on Wed Jun 27 2017
 
 @author: David Hsu
 
@@ -354,6 +354,40 @@ def csvWrite(arr,fileName):
 
     file.close()
     return
+
+def isPrime(num):
+    if(num<=1):
+        return False
+    else:
+        prime = True
+        sqroot = math.sqrt(num)
+        bound = int(sqroot)+1
+        for i in range(2,bound):
+            if(num%i==0):
+                prime = False
+                break
+        return prime
+
+def primeFactorize(num):
+    factors = []
+    while(True):
+        sqroot = math.sqrt(num)
+        bound = int(sqroot)+1
+        prime = True
+        for i in range(2,bound):
+            if(num%i==0):
+                prime = False
+                factors.append(i)
+                num = num/i
+                break
+        if(prime):
+            factors.append(int(num))
+            num = num/num
+        if(num==1):
+            break
+    return factors
+
+
 
     
 
