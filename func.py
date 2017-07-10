@@ -471,7 +471,20 @@ def fibonacci(n):
             cnt += 1
     return fib
 
-
+def allPermutation(arr,n):
+    if(n==len(arr)):
+        print(arr)
+    else:
+        for i in range(n,len(arr)):
+            # swap index n(head), i
+            temp = arr[i]
+            arr[i] = arr[n]
+            arr[n] = temp
+            allPermutation(arr,n+1)
+            # swap back to resume arr
+            temp = arr[i]
+            arr[i] = arr[n]
+            arr[n] = temp
 
     
     
